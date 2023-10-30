@@ -21,12 +21,6 @@ import java.util.Optional;
 public class PlayersService {
 
     @Autowired
-    PlayerRepository playerRepository;
-
-    @Autowired
-    TeamsRepository teamsRepository;
-
-    @Autowired
     ScheduleRepository scheduleRepository;
 
     public void index(Model model){

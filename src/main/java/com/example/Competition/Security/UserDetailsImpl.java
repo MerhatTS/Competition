@@ -5,6 +5,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.Collections;
 
 public class UserDetailsImpl implements UserDetails {
 
@@ -20,6 +21,11 @@ public class UserDetailsImpl implements UserDetails {
                 .stream()
                 .map(r -> new GrantedAuthorityImpl(r.getName(), true))
                 .toList();
+    }
+
+
+    public Integer getUserId(){
+        return users.getId();
     }
 
     @Override

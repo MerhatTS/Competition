@@ -7,14 +7,54 @@
         <form method="post" th:action="@{/profile}" class="row">
             <div class="row mt-2">
                 <div class="col-4 text-right">
-                    <label for="name" class="form_label">Name film: </label>
+                    <label for="name" class="form_label">Имя</label>
                 </div>
                 <div class="col-8">
                     <input type="text" class="form-control" id="name" name="name" th:value="${players.name}">
                 </div>
             </div>
+            <div class="row mt-2">
+                <div class="col-4 text-right">
+                    <label for="age" class="form_label">Возраст</label>
+                </div>
+                <div class="col-8">
+                    <input type="text" class="form-control" id="age" name="age" th:value="${players.age}">
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-4 text-right">
+                    <label for="gender" class="form_label">Пол</label>
+                </div>
+                <div class="col-8">
+                    <input type="text" class="form-control" id="gender" name="gender" th:value="${players.gender}">
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-4 text-right">
+                    <label for="height" class="form_label">Рост</label>
+                </div>
+                <div class="col-8">
+                    <input type="text" class="form-control" id="height" name="height" th:value="${players.height}">
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-4 text-right">
+                    <label for="weight" class="form_label">Вес</label>
+                </div>
+                <div class="col-8">
+                    <input type="text" class="form-control" id="weight" name="weight" th:value="${players.weight}">
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-4 text-right">
+                    <label for="info" class="form_label">Дополнительная информация</label>
+                </div>
+                <div class="col-8">
+                    <input type="text" class="form-control" id="info" name="info" th:value="${players.info}">
+                </div>
+            </div>
             <div class="col-12 mt-3">
-                <button type="submit" class="btn btn-primary">Регистрация</button>
+                <button type="submit" class="btn btn-primary">Отправить</button>
             </div>
 
         </form>

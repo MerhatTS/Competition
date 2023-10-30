@@ -19,7 +19,7 @@ public interface PlayerRepository extends CrudRepository<Players, Integer> {
     @Query(value = "from Schedule")
     List<Schedule> scheduleAll();
 
-    @Query(value = "from Players p where p.user_id = :user_id")
-    Optional<Players> findByUserId(@Param("user_id") Integer userId);
+    @Query(value = "from Players p left join fetch p.users u where u.id = :id")
+    Optional<Players> findByUserId(@Param("id") Integer id);
 
 }

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://wwww.thymleaf.org">
+<head th:replace="~{fragments/title}"></head>
+<body>
+<div class="container">
+  <div class="card" th:each="players, iter : ${players}">
+    <h4 class="col" th:text="${players.name}"></h4>
+    <p>возраст [[${players.age}]], пол [[${players.gender}]], рост [[${players.height}]], вес [[${players.weight}]]</p>
+    <div>
+      <a th:href="@{/admin/listPlayers/{id}(id = ${players.id})}">
+        <button type="button" style="border-radius: 5px;">
+          Одобрить
+        </button>
+      </a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

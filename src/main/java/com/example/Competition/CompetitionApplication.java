@@ -11,7 +11,7 @@ public class CompetitionApplication {
 	public static void main(String[] args) {
 
 //		BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-//		String r = bCryptPasswordEncoder.encode("12345");
+//		String r = bCryptPasswordEncoder.encode("admin");
 //
 //		System.out.println(r);
 

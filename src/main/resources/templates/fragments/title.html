@@ -38,7 +38,7 @@
                     <a class="nav-link h5" th:href="@{/profile}">Профиль</a>
                 </li>
                 <li sec:authorize="hasRole('admin')" class="nav-item">
-                    <a class="nav-link h5" th:href="@{/admin}">Управление</a>
+                    <a class="nav-link h5" th:href="@{/admin/listPlayers}">Управление</a>
                 </li>
             </ul>
         </div>

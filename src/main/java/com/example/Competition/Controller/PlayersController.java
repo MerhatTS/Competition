@@ -1,7 +1,6 @@
 package com.example.Competition.Controller;
 
 import com.example.Competition.Entity.Players;
-import com.example.Competition.Entity.Schedule;
 import com.example.Competition.Entity.Users;
 import com.example.Competition.Repositories.PlayerRepository;
 import com.example.Competition.Repositories.RoleRepository;
@@ -12,7 +11,6 @@ import com.example.Competition.Services.PlayersService;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
-import org.apache.catalina.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -21,7 +19,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.net.Authenticator;
 import java.util.Optional;
 
 
@@ -51,6 +48,11 @@ public class PlayersController {
     public String teams(Model model){
         playersService.teams(model);
         return "teams";
+    }
+
+    @RequestMapping("/schedule")
+    public String teams(){
+        return "schedule";
     }
 
     @GetMapping("/register")

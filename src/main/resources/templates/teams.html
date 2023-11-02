@@ -3,20 +3,58 @@
 <head th:replace="~{fragments/title}"></head>
 <body>
 <div class="container">
-  <div class="col-12 mt-3" th:each="teams : ${teams}">
-    <div class="card">
-      <div class="text-center mt-3 col-3">
-        <img th:src="@{/atl_mad.png}" class="card-img-top" alt="img">
+  <div class="row">
+    <div class="card mt-3">
+      <div class="row">
+        <div class="col-sm-5">
+            <div class="h4" th:text="${teams1}"></div>
+            <div class="text-center mt-6 col-6">
+                <img th:src="@{/atl_mad.png}" class="card-img-top mb-3" alt="img">
+            </div>
+        </div>
+        <div class="col-sm-7">
+            <div class="col mt-3">
+                <h4 class="h4" th:text="${name1}"></h4>
+                <span class="h6" th:text="${age1}"></span>
+                <span class="h6" th:text="${gender1}"></span>
+            </div>
+            <div class="col mt-3">
+                <h4 class="h4" th:text="${name2}"></h4>
+                <span class="h6" th:text="${age2}"></span>
+                <span class="h6" th:text="${gender2}"></span>
+            </div>
+        </div>
       </div>
-      <div class="card-body">
-        <div class="card-title" th:text="${teams.name}"></div>
-      </div>
-
-      <div class="col-12 mt-3" th:each="players : ${players}">
-        <div class="col" th:text="${players.name}"></div>
-      </div>
-
     </div>
+  </div>
+  <div class="row">
+        <div class="card mt-3">
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="h4" th:text="${teams2}"></div>
+                    <div class="text-center mt-6 col-6">
+                        <img th:src="@{/uyventus.png}" class="card-img-top mb-3" alt="img">
+                    </div>
+                </div>
+                <div class="col-sm-7">
+                    <div class="col mt-3">
+                        <h4 class="h4" th:text="${name3}"></h4>
+                        <span class="h6" th:text="${age3}"></span>
+                        <span class="h6" th:text="${gender3}"></span>
+                    </div>
+                    <div class="col mt-3">
+                        <h4 class="h4" th:text="${name4}"></h4>
+                        <span class="h6" th:text="${age4}"></span>
+                        <span class="h6" th:text="${gender4}"></span>
+                    </div>
+                    <div class="col mt-3">
+                        <h4 class="h4" th:text="${name5}"></h4>
+                        <span class="h6" th:text="${age5}"></span>
+                        <span class="h6" th:text="${gender5}"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
   </div>
 </div>
 

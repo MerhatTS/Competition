@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
@@ -18,10 +19,18 @@ public class AdminController {
     @Autowired
     AdminService adminService;
 
-    @RequestMapping("/admin/listPlayers/{id}")
-    public String Players(@PathVariable Integer id, Model model){
-        adminService.listPlayers(model, id);
-        return "admin/listPlayers";
+    @RequestMapping("/admin/listPlayers")
+    public String Players(Model model){
+        adminService.listPlayers(model);
+        return ("admin/listPlayers");
     }
+
+    @RequestMapping("/admin/listPlayers/{id}")
+    public RedirectView Players(@PathVariable Integer id){
+        adminService.changelistPlayers(id);
+        return new RedirectView("/index");
+    }
+
+
 
 }

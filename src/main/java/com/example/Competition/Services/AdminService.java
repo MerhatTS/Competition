@@ -19,15 +19,21 @@ public class AdminService {
 
     @Autowired
     PlayerRepository playerRepository;
-    public void listPlayers(Model model, Integer id){
-        Players players = playerRepository.findById(id).get();
+
+    public void listPlayers(Model model){
+        List<Players> players = playerRepository.findAll();
         model.addAttribute("players", players);
+
+    }
+    public void changelistPlayers(Integer id){
+        Players players = playerRepository.findById(id).get();
 
         if (players.getAccepted() == null){
             players.setAccepted(true);
         } else{
             players.setAccepted(false);
         }
+
         playerRepository.save(players);
     }
 

@@ -47,6 +47,11 @@ public class PlayersController {
         playersService.index(model);
         return "index";
     }
+    @RequestMapping("/teams")
+    public String teams(Model model){
+        playersService.teams(model);
+        return "teams";
+    }
 
     @GetMapping("/register")
     public String register(){

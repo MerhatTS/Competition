@@ -23,6 +23,12 @@ public class PlayersService {
     @Autowired
     ScheduleRepository scheduleRepository;
 
+    @Autowired
+    PlayerRepository playerRepository;
+
+    @Autowired
+    TeamsRepository teamsRepository;
+
     public void index(Model model){
 
         Schedule schedule1 = scheduleRepository.findById(9).get();
@@ -45,8 +51,13 @@ public class PlayersService {
         model.addAttribute("idDate4", schedule4.getDate());
         model.addAttribute("schedule7", schedule4.getSecondTeam());
         model.addAttribute("schedule8", schedule4.getFirstTeam());
+    }
 
-
+    public void teams(Model model){
+        Iterable<Teams>  teams = teamsRepository.findAll();
+        Iterable<Players> players = playerRepository.findAll();
+        model.addAttribute("teams", teams);
+        model.addAttribute("players", players);
 
 
     }

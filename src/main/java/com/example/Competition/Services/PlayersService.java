@@ -57,30 +57,41 @@ public class PlayersService {
         Teams teams2 = teamsRepository.findById(2).get();
         model.addAttribute("teams2", teams2.getName());
 
-        Players players1 = playerRepository.findById(1).get();
+        Players players1 = playerRepository.findById(18).get();
         model.addAttribute("name1", players1.getName());
         model.addAttribute("age1", players1.getAge());
         model.addAttribute("gender1", players1.getGender());
+        model.addAttribute("height1", players1.getHeight());
+        model.addAttribute("weight1", players1.getWeight());
 
-        Players players2 = playerRepository.findById(2).get();
+        Players players2 = playerRepository.findById(19).get();
         model.addAttribute("name2", players2.getName());
         model.addAttribute("age2", players2.getAge());
         model.addAttribute("gender2", players2.getGender());
+        model.addAttribute("height2", players2.getHeight());
+        model.addAttribute("weight2", players2.getWeight());
 
-        Players players3 = playerRepository.findById(3).get();
+        Players players3 = playerRepository.findById(20).get();
         model.addAttribute("name3", players3.getName());
         model.addAttribute("age3", players3.getAge());
         model.addAttribute("gender3", players3.getGender());
+        model.addAttribute("height3", players3.getHeight());
+        model.addAttribute("weight3", players3.getWeight());
 
-        Players players4 = playerRepository.findById(4).get();
+        Players players4 = playerRepository.findById(19).get();
         model.addAttribute("name4", players4.getName());
         model.addAttribute("age4", players4.getAge());
         model.addAttribute("gender4", players4.getGender());
+        model.addAttribute("height4", players4.getHeight());
+        model.addAttribute("weight4", players4.getWeight());
 
-        Players players5 = playerRepository.findById(5).get();
+
+        Players players5 = playerRepository.findById(21).get();
         model.addAttribute("name5", players5.getName());
         model.addAttribute("age5", players5.getAge());
         model.addAttribute("gender5", players5.getGender());
+        model.addAttribute("height5", players4.getHeight());
+        model.addAttribute("weight5", players4.getWeight());
 
     }
 }

@@ -3,12 +3,14 @@
 <head th:replace="~{fragments/title}"></head>
 <body>
 <div class="container">
-  <div class="card" th:each="players, iter : ${players}">
+  <div class="col" th:each="players, iter : ${players}">
+<!--    <input type="hidden" class="form-control" id="id" name="id" th:value="${players.accepted}">-->
     <h4 class="col" th:text="${players.name}"></h4>
     <p>возраст [[${players.age}]], пол [[${players.gender}]], рост [[${players.height}]], вес [[${players.weight}]]</p>
+    <h7 >[[${players.info}]]</h7>
     <div>
       <a th:href="@{/admin/listPlayers/{id}(id = ${players.id})}">
-        <button type="button" style="border-radius: 5px;">
+        <button type="button" class="btn btn-primary mb-3 mt-3" >
           Одобрить
         </button>
       </a>
@@ -17,3 +19,17 @@
 </div>
 </body>
 </html>
+
+<!--th:text="${teacher.additionalSkills} ?: 'UNKNOWN'"-->
+<!--players.accepted-->
+<!--<td>-->
+<!--    <span th:if="${teacher.gender == 'F'}">Female</span>-->
+<!--    <span th:unless="${teacher.gender == 'F'}">Male</span>-->
+<!--</td>-->
+
+<!--th:style="${todo.isCompleted ? 'width:500px;border-bottom: solid 3px gray; ' : 'width:500px;border-bottom: solid 3px green;'}-->
+<!--<div th:style="${todo.isCompleted ? 'width:500px;border-bottom: solid 3px gray; ' : 'width:500px;border-bottom: solid 3px green;'} + ${todo.isPostponed ? 'width:500px;border-bottom: solid 3px red; ' : ''}-->
+<!--                + ${todo.isActive ? 'width:500px;border-bottom: solid 3px black; ' : ''} " th:text="${todo.title}">-->
+<!--</div>-->
+
+<!--${number == 0 ? 'disabled' : ''}"-->

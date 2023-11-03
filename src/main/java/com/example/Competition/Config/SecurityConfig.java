@@ -13,7 +13,8 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception{
         httpSecurity.authorizeHttpRequests(authorization -> {
             authorization.requestMatchers("/profile").hasRole("user");
-            authorization.requestMatchers("/admin").hasRole("admin");
+            authorization.requestMatchers("/admin/listPlayers").hasRole("admin");
+            authorization.requestMatchers("/admin/addTeams").hasRole("admin");
             authorization.anyRequest().permitAll();
         });
         httpSecurity.formLogin((Customizer.withDefaults()));

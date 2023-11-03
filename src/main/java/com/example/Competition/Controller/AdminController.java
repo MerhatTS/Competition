@@ -1,6 +1,7 @@
 package com.example.Competition.Controller;
 
 import com.example.Competition.Entity.Players;
+import com.example.Competition.Entity.Teams;
 import com.example.Competition.Repositories.PlayerRepository;
 import com.example.Competition.Services.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,17 +19,21 @@ import java.util.List;
 public class AdminController {
     @Autowired
     AdminService adminService;
-
     @RequestMapping("/admin/listPlayers")
     public String Players(Model model){
         adminService.listPlayers(model);
         return ("admin/listPlayers");
     }
-
     @RequestMapping("/admin/listPlayers/{id}")
     public RedirectView Players(@PathVariable Integer id){
         adminService.changelistPlayers(id);
         return new RedirectView("/index");
+    }
+
+    @RequestMapping("/admin/addTeams")
+    public String addTeams(Teams teams, Model model){
+        adminService.addTeams(model, teams);
+        return "admin/addTeams";
     }
 
 

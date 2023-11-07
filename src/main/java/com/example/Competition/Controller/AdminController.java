@@ -7,12 +7,10 @@ import com.example.Competition.Services.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -34,6 +32,24 @@ public class AdminController {
     public String addTeams(Teams teams, Model model){
         adminService.addTeams(model, teams);
         return "admin/addTeams";
+    }
+
+    @RequestMapping("/admin/adminTeams")
+    public String adminTeams(Model model){
+        adminService.adminTeams(model);
+        return "admin/adminTeams";
+    }
+
+    @GetMapping("/admin/addPlayers/{id}")
+    public String addPlayers(Model model, @PathVariable Integer id){
+        adminService.addPlayers(model, id);
+        return "admin/addPlayers";
+    }
+
+    @PostMapping("/admin/addPlayers/{id}")
+    public String savePayers(Model model, @RequestParam(required = false) List<Integer> pids, @PathVariable Integer id) {
+        adminService.savePlayers(model, pids, id);
+        return "redirect:/admin/addPlayers/"+id;
     }
 
 

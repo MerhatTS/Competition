@@ -31,8 +31,8 @@ public class Players {
     @ManyToOne
     @JoinTable(
             name = "team_players",
-            joinColumns = {@JoinColumn(name = "team_id")},
-            inverseJoinColumns = {@JoinColumn(name = "player_id")}
+            joinColumns = {@JoinColumn(name = "player_id")},
+            inverseJoinColumns = {@JoinColumn(name = "team_id")}
     )
     private Teams team;
 

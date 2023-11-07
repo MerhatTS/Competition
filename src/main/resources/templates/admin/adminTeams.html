@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://wwww.thymleaf.org">
+<head th:replace="~{fragments/adminTitle}"></head>
+<body>
+<div class="container">
+    <div>
+        <a th:href="@{/admin/addTeams}">
+            <button type="button" class="btn btn-primary">Добавить команду</button>
+        </a>
+    </div>
+    <div class="card mt-3" th:each="team : ${teams}">
+        <div class="row">
+            <div class="col-sm-5">
+                <div class="h4" th:text="${team.name}"></div>
+                <div class="text-center mt-6 col-6">
+                    <img th:src="@{/atl_mad.png}" class="card-img-top mb-3" alt="img">
+                </div>
+            </div>
+            <div class="col-sm-7">
+                <div class="card-body" th:each="player : ${team.players}">
+                    <h5 class="col" th:text="${player.name}"></h5>
+                    <div class="col mt-3">
+                        <p>возраст [[${player.age}]], пол [[${player.gender}]], рост [[${player.height}]], вес [[${player.weight}]]</p>
+                    </div>
+                    <p class="col" th:text="${player.info}"></p>
+                </div>
+                <div class="col-mt-3">
+                    <a th:href="@{/admin/addPlayers/{id} (id = ${team.id})}">
+                        <button type="button" class="btn btn-primary">Добавить игроков</button>
+                    </a>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+</html>

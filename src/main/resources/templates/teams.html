@@ -4,52 +4,25 @@
 <body>
 <div class="container">
   <div class="row">
-    <div class="card mt-3">
+    <div class="card mt-3" th:each="team : ${teams}">
       <div class="row">
         <div class="col-sm-5">
-            <div class="h4" th:text="${teams1}"></div>
+            <div class="h4" th:text="${team.name}"></div>
             <div class="text-center mt-6 col-6">
                 <img th:src="@{/atl_mad.png}" class="card-img-top mb-3" alt="img">
             </div>
         </div>
         <div class="col-sm-7">
-            <div class="col mt-3">
-                <h4 class="h4" th:text="${name1}"></h4>
-                <p>возраст [[${age1}]], пол [[${gender1}]], рост [[${height1}]], вес [[${weight1}]]</p>
-            </div>
-            <div class="col mt-3">
-                <h4 class="h4" th:text="${name2}"></h4>
-                <p>возраст [[${age2}]], пол [[${gender2}]], рост [[${height2}]], вес [[${weight2}]]</p>
+            <div class="card-body" th:each="player : ${team.players}">
+                <h5 class="col" th:text="${player.name}"></h5>
+                <div class="col mt-3">
+                    <p>возраст [[${player.age}]], пол [[${player.gender}]], рост [[${player.height}]], вес [[${player.weight}]]</p>
+                </div>
+                <p class="col" th:text="${player.info}"></p>
             </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="row">
-        <div class="card mt-3">
-            <div class="row">
-                <div class="col-sm-5">
-                    <div class="h4" th:text="${teams2}"></div>
-                    <div class="text-center mt-6 col-6">
-                        <img th:src="@{/uyventus.png}" class="card-img-top mb-3" alt="img">
-                    </div>
-                </div>
-                <div class="col-sm-7">
-                    <div class="col mt-3">
-                        <h4 class="h4" th:text="${name3}"></h4>
-                        <p>возраст [[${age3}]], пол [[${gender3}]], рост [[${height3}]], вес [[${weight3}]]</p>
-                    </div>
-                    <div class="col mt-3">
-                        <h4 class="h4" th:text="${name4}"></h4>
-                        <p>возраст [[${age4}]], пол [[${gender4}]], рост [[${height4}]], вес [[${weight4}]]</p>
-                    </div>
-                    <div class="col mt-3">
-                        <h4 class="h4" th:text="${name5}"></h4>
-                        <p>возраст [[${age5}]], пол [[${gender5}]], рост [[${height5}]], вес [[${weight5}]]</p>
-                    </div>
-                </div>
-            </div>
-        </div>
   </div>
 </div>
 

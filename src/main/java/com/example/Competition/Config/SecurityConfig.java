@@ -15,6 +15,7 @@ public class SecurityConfig {
             authorization.requestMatchers("/profile").hasRole("user");
             authorization.requestMatchers("/admin/listPlayers").hasRole("admin");
             authorization.requestMatchers("/admin/addTeams").hasRole("admin");
+            authorization.requestMatchers("/admin/adminTeams").hasRole("admin");
             authorization.anyRequest().permitAll();
         });
         httpSecurity.formLogin((Customizer.withDefaults()));

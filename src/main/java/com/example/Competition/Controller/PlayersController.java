@@ -50,9 +50,9 @@ public class PlayersController {
         return "teams";
     }
 
-    @RequestMapping("/schedule")
-    public String teams(){
-        return "schedule";
+    @RequestMapping("/about")
+    public String about(){
+        return "about";
     }
 
     @GetMapping("/register")

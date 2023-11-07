@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://wwww.thymleaf.org">
-<head th:replace="~{fragments/title}"></head>
+<head th:replace="~{fragments/adminTitle}"></head>
 <body>
 <div class="container">
   <div class="col" th:each="players, iter : ${players}">
@@ -9,7 +9,7 @@
     <h7 >[[${players.info}]]</h7>
     <div>
       <a th:href="@{/admin/listPlayers/{id}(id = ${players.id})}">
-        <button type="button" class="btn btn-primary mb-3 mt-3" >
+        <button type="button" class="btn btn-primary mb-3 mt-3" th:if="!${players.accepted}">
           Одобрить
         </button>
       </a>

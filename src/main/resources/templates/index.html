@@ -3,55 +3,18 @@
 <head th:replace="~{fragments/title}"></head>
 <body>
 <div class="container">
-        <div class="col-12 mt-3">
+        <div class="col-12 mt-3" th:each="schedule : ${schedules}">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title justify-content-center text-center" th:text="${#dates.format(idDate1, 'dd.mm.yyyy HH:mm')}"></h5>
+                    <h5 class="card-title justify-content-center text-center" th:text="${#dates.format(schedule.date, 'dd.MM.yyyy HH:mm')}"></h5>
                     <p class="card-text justify-content-center text-center">
-                        <span class="h2" th:text="${schedule1}"></span>
-                        <span class="h3">VS</span>
-                        <span class="h2" th:text="${schedule2}"></span>
+                        <span class="h2" th:text="${schedule?.firstTeam?.name ?: 'TBA'}"></span>
+                        <span class="h3 mx-5">VS</span>
+                        <span class="h2" th:text="${schedule?.secondTeam?.name ?: 'TBA'}"></span>
                     </p>
                 </div>
             </div>
         </div>
-        <div class="col-12 mt-3">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title justify-content-center text-center" th:text="${#dates.format(idDate2, 'dd.mm.yyyy HH:mm')}"></h5>
-                    <p class="card-text justify-content-center text-center">
-                        <span class="h2" th:text="${schedule3}"></span>
-                        <span class="h3">VS</span>
-                        <span class="h2" th:text="${schedule4}"></span>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 mt-3">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title justify-content-center text-center" th:text="${#dates.format(idDate3, 'dd.mm.yyyy HH:mm')}"></h5>
-                    <p class="card-text justify-content-center text-center">
-                        <span class="h2" th:text="${schedule5}"></span>
-                        <span class="h3">VS</span>
-                        <span class="h2" th:text="${schedule6}"></span>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 mt-3">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title justify-content-center text-center" th:text="${#dates.format(idDate4, 'dd.mm.yyyy HH:mm')}"></h5>
-                    <p class="card-text justify-content-center text-center">
-                        <span class="h2" th:text="${schedule7}"></span>
-                        <span class="h3">VS</span>
-                        <span class="h2" th:text="${schedule8}"></span>
-                    </p>
-                </div>
-            </div>
-        </div>
-
 </div>
 <div th:replace="~{fragments/footer :: footer}"></div>
 </body>

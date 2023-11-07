@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://wwww.thymleaf.org">
+<head th:replace="~{fragments/title}"></head>
+<body>
+<div class="container">
+    <form method="post" th:action="@{/admin/addPlayers/{id}(id = ${teamid})}">
+        <input type="hidden" name="id" th:value="${teamid}">
+        <div class="row" th:each="player : ${players}">
+            <div class="col-6">
+                <label class="form_label" th:text="${player.name}"></label>
+            </div>
+            <div class="col-6">
+                <input type="checkbox" class="form-check-input" name="pids" th:value="${player.id}"/>
+            </div>
+        </div>
+        <div class="col-12 mt-3">
+            <button type="submit" class="btn btn-primary">Добавить</button>
+        </div>
+    </form>
+</div>
+
+
+</body>
+</html>

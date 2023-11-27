@@ -26,12 +26,12 @@ public class PlayersService {
     @Autowired
     TeamsRepository teamsRepository;
 
-    public void index(Model model){
+    public void index(Model model) {
         Iterable<Schedule> schedules = scheduleRepository.findAll();
         model.addAttribute("schedules", schedules);
     }
 
-    public void teams(Model model){
+    public void teams(Model model) {
         Iterable<Teams> teams = teamsRepository.findAll();
         model.addAttribute("teams", teams);
     }

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://wwww.thymleaf.org">
+<head th:replace="~{fragments/adminTitle}"></head>
+<body>
+<div class="container mb-3">
+    <div class="container">
+        <form method="post" th:action="@{/admin/addSchedule}">
+            <div class="row">
+                <div class="col-5">
+                    <select class="form-control" name="team1">
+                        <option value="">Выбрать команду</option>
+                        <option th:each="team : ${teams}" th:value="${team.id}" th:text="${team.name}">
+                        </option>
+                    </select>
+                </div>
+                <div class="col-2">
+                    <input type="datetime-local" name="matchtime" class="form-control">
+                </div>
+                <div class="col-5">
+                    <select class="form-control" name="team2">
+                        <option value="">Выбрать команду</option>
+                        <option th:each="team : ${teams}" th:value="${team.id}" th:text="${team.name}">
+                        </option>
+                    </select>
+                </div>
+                <div class="col-12 mt-3">
+                    <button type="submit" class="btn btn-primary">Добавить</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-12 mt-3" th:each="schedule : ${schedules}">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title justify-content-center text-center" th:text="${#dates.format(schedule.date, 'dd.MM.yyyy HH:mm')}"></h5>
+                <p class="card-text justify-content-center text-center">
+                    <span class="h2" th:text="${schedule?.firstTeam?.name ?: 'TBA'}"></span>
+                    <span class="h3 mx-5">VS</span>
+                    <span class="h2" th:text="${schedule?.secondTeam?.name ?: 'TBA'}"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="~{fragments/footer}"></div>
+</body>
+</html>
+
+<!--<form method="post" th:action="@{/schedule}">-->
+<!--    <div class="row">-->
+<!--        <select class="form-control" id="teams" name="teams">-->
+<!--            <option value="">Выбрать команду</option>-->
+<!--            <option th:each="team : ${teams}"-->
+<!--                    th:value="${team.name}"-->
+<!--                    th:text="${team.name}">-->
+<!--            </option>-->
+<!--        </select>-->
+<!--        <div class="col-12 mt-3">-->
+<!--            <button type="submit" class="btn btn-primary">Добавить</button>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</form>-->

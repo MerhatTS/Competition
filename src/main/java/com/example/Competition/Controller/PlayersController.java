@@ -39,29 +39,30 @@ public class PlayersController {
     @Autowired
     PlayerRepository playerRepository;
 
-    @RequestMapping({"/","/index"})
-    public String index(Model model){
+    @RequestMapping({"/", "/index"})
+    public String index(Model model) {
         playersService.index(model);
         return "index";
     }
+
     @RequestMapping("/teams")
-    public String teams(Model model){
+    public String teams(Model model) {
         playersService.teams(model);
         return "teams";
     }
 
     @RequestMapping("/about")
-    public String about(){
+    public String about() {
         return "about";
     }
 
     @GetMapping("/register")
-    public String register(){
+    public String register() {
         return "register";
     }
 
     @PostMapping("/register")
-    public  String register_confirm(@RequestParam String login, @RequestParam String password, Model model){
+    public String register_confirm(@RequestParam String login, @RequestParam String password, Model model) {
         Users users = new Users();
         users.setLogin(login);
         users.setPassword(new BCryptPasswordEncoder().encode(password));
@@ -73,7 +74,7 @@ public class PlayersController {
     }
 
     @GetMapping("/profile")
-    public String profile(Authentication authentication, Model model){
+    public String profile(Authentication authentication, Model model) {
         UserDetailsImpl user = (UserDetailsImpl) authentication.getPrincipal();
         Optional<Players> players = playerRepository.findByUserId(user.getUserId());
         model.addAttribute("players", players.orElseGet(Players::new));
@@ -81,10 +82,10 @@ public class PlayersController {
     }
 
     @PostMapping("/profile")
-    public  String saveProfile(Players players, Authentication authentication, Model model){
+    public String saveProfile(Players players, Authentication authentication, Model model) {
         UserDetailsImpl user = (UserDetailsImpl) authentication.getPrincipal();
         Optional<Players> playersEntity = playerRepository.findByUserId(user.getUserId());
-        if (playersEntity.isPresent()){
+        if (playersEntity.isPresent()) {
             Players save = playersEntity.get();
             save.setName(players.getName());
             save.setAge(players.getAge());
@@ -103,11 +104,8 @@ public class PlayersController {
     }
 
 
-
-
-
     @RequestMapping("/manualLogout")
-    public String customLogout(Model model, HttpServletRequest request) throws ServletException{
+    public String customLogout(Model model, HttpServletRequest request) throws ServletException {
         request.logout();
         return "redirect:/";
     }

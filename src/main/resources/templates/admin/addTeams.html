@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://wwww.thymleaf.org">
-<head th:replace="~{fragments/title}"></head>
+<head th:replace="~{fragments/adminTitle}"></head>
 <body>
 <div class="container">
-
     <div class="card-body">
         <form th:action="@{/admin/addTeams}" method="POST">
             <div class="mb-3">
@@ -16,7 +15,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="mt-4">
                 <button type="submit" class="btn btn-outline-primary">Сохранить</button>
                 <a th:href="@{/admin/adminTeams}">

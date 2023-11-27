@@ -6,7 +6,7 @@ public class GrantedAuthorityImpl implements GrantedAuthority {
     private String authority;
     private boolean isRole;
 
-    GrantedAuthorityImpl(String authority, boolean isRole){
+    GrantedAuthorityImpl(String authority, boolean isRole) {
         this.authority = authority;
         this.isRole = isRole;
     }

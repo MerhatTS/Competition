@@ -11,20 +11,17 @@ public class UserDetailsImpl implements UserDetails {
 
     private Users users;
 
-    public UserDetailsImpl(Users users){
+    public UserDetailsImpl(Users users) {
         this.users = users;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return users.getRoles()
-                .stream()
-                .map(r -> new GrantedAuthorityImpl(r.getName(), true))
-                .toList();
+        return users.getRoles().stream().map(r -> new GrantedAuthorityImpl(r.getName(), true)).toList();
     }
 
 
-    public Integer getUserId(){
+    public Integer getUserId() {
         return users.getId();
     }
 
